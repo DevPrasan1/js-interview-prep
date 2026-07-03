@@ -13,6 +13,7 @@ const BookmarksPage = lazy(() => import('./pages/BookmarksPage'));
 const StatsPage = lazy(() => import('./pages/StatsPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ShortsPage = lazy(() => import('./pages/ShortsPage'));
 
 // Fallback Loading placeholder for Suspense
 function PageLoader() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<Home onSearchTrigger={handleOpenSearch} />} />
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/question/:id" element={<QuestionPage />} />
+            <Route path="/shorts" element={<ShortsPage />} />
             <Route path="/bookmarks" element={<BookmarksPage />} />
             <Route path="/progress" element={<StatsPage />} />
             <Route path="/settings" element={<SettingsPage />} />

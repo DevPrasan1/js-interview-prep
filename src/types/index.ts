@@ -49,4 +49,5 @@ export interface UserProgress {
   studyStreak: number;
   lastStudyDate: string | null;
   dailyCompletionHistory: DayProgress[];
+  lastShortsQuestionId?: number | null;
 }

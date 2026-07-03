@@ -126,7 +126,37 @@ export default function QuestionPage() {
         )}
 
         {/* Share & Copy buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
+          {/* Mark Complete (mobile only) */}
+          <button
+            onClick={() => {
+              toggleCompleted(question.id);
+              if (!isCompleted) toast.success('Marked as complete!');
+              else toast.info('Marked as incomplete.');
+            }}
+            aria-label={isCompleted ? "Mark incomplete" : "Mark complete"}
+            className={`p-2 rounded-xl border border-border-color bg-bg-primary hover:bg-bg-secondary transition-all cursor-pointer shadow-sm lg:hidden ${
+              isCompleted ? 'text-emerald-500 border-emerald-500/25 bg-emerald-500/5' : 'text-text-secondary'
+            }`}
+          >
+            <CheckCircle className={`w-4 h-4 ${isCompleted ? 'text-emerald-500 fill-emerald-500/10' : ''}`} />
+          </button>
+
+          {/* Bookmark (mobile only) */}
+          <button
+            onClick={() => {
+              toggleBookmark(question.id);
+              if (!isBookmarked) toast.success('Added to bookmarks!');
+              else toast.info('Removed from bookmarks.');
+            }}
+            aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
+            className={`p-2 rounded-xl border border-border-color bg-bg-primary hover:bg-bg-secondary transition-all cursor-pointer shadow-sm lg:hidden ${
+              isBookmarked ? 'text-yellow-500 bg-yellow-500/5 border-yellow-500/20' : 'text-text-secondary'
+            }`}
+          >
+            <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
+          </button>
+
           <button
             onClick={handleCopyLink}
             aria-label="Copy page link"
@@ -173,8 +203,8 @@ export default function QuestionPage() {
 
           <div className="w-full h-px bg-border-color" />
 
-          {/* Quick Actions Checklist */}
-          <div className="space-y-3">
+          {/* Quick Actions Checklist (desktop only) */}
+          <div className="hidden lg:flex lg:flex-col gap-3">
             <Button
               variant={isCompleted ? 'secondary' : 'primary'}
               className="w-full cursor-pointer justify-center"

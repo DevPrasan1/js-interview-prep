@@ -18,7 +18,8 @@ import {
   ChevronRight,
   Flame,
   CheckCircle2,
-  BookOpen
+  BookOpen,
+  Zap
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -39,11 +40,10 @@ function SidebarLink({ to, icon, label, badge, badgeColor = 'bg-accent/15 text-a
     <Link
       to={to}
       onClick={onClick}
-      className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group text-sm font-medium ${
-        isActive
+      className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group text-sm font-medium ${isActive
           ? 'bg-accent text-white shadow-md shadow-accent/20'
           : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary'
-      }`}
+        }`}
     >
       <div className="flex items-center gap-3">
         <span className={`transition-transform duration-200 group-hover:scale-105`}>
@@ -146,7 +146,7 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
 
   return (
     <div className={`min-h-screen flex flex-col md:flex-row bg-bg-secondary ${fontSizeClass} transition-all duration-200`}>
-      
+
       {/* Mobile Top Navbar */}
       <header className="md:hidden flex items-center justify-between px-4 py-3 bg-bg-primary border-b border-border-color sticky top-0 z-40 shadow-sm">
         <div className="flex items-center gap-2">
@@ -162,7 +162,7 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
             <span>Frontend Prep</span>
           </Link>
         </div>
-        
+
         <div className="flex items-center gap-3">
           <button
             onClick={onSearchTrigger}
@@ -171,7 +171,7 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
           >
             <Search className="w-5 h-5" />
           </button>
-          
+
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -197,9 +197,8 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
 
       {/* Sidebar Component */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-72 bg-bg-primary border-r border-border-color flex flex-col transform md:transform-none transition-transform duration-300 ease-in-out md:sticky md:top-0 md:h-screen ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-72 bg-bg-primary border-r border-border-color flex flex-col transform md:transform-none transition-transform duration-300 ease-in-out md:sticky md:top-0 md:h-screen ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+          }`}
       >
         {/* Header */}
         <div className="h-16 px-6 border-b border-border-color flex items-center justify-between bg-bg-primary sticky top-0 z-10">
@@ -225,9 +224,9 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
             </div>
             <span className="text-xs text-text-muted mt-0.5 font-medium">Day Streak</span>
           </div>
-          
+
           <div className="w-px h-8 bg-border-color" />
-          
+
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1.5 text-emerald-500 font-bold text-lg">
               <CheckCircle2 className="w-5 h-5" />
@@ -243,6 +242,12 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
             to="/"
             icon={<LayoutDashboard className="w-5 h-5" />}
             label="Dashboard"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+          <SidebarLink
+            to="/shorts"
+            icon={<Zap className="w-5 h-5 text-accent fill-accent/10" />}
+            label="Swipe Cards"
             onClick={() => setIsSidebarOpen(false)}
           />
           <SidebarLink
@@ -341,7 +346,7 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
         </header>
 
         {/* Content Container */}
-        <div className={`flex-1 overflow-y-auto ${compactMode ? 'p-4 md:p-6' : 'p-6 md:p-8'}`}>
+        <div className={`flex-1 overflow-y-auto ${compactMode ? 'p-1 md:p-6' : 'p-2 md:p-8'}`}>
           <div className="max-w-6xl mx-auto w-full">
             {children}
           </div>

@@ -16,6 +16,7 @@ interface StoreState {
   studyStreak: number;
   lastStudyDate: string | null;
   dailyCompletionHistory: DayProgress[];
+  lastShortsQuestionId: number | null;
 
   // Settings Actions
   setTheme: (theme: UserSettings['theme']) => void;
@@ -31,6 +32,7 @@ interface StoreState {
   addToRecentlyViewed: (id: number) => void;
   resetProgress: () => void;
   importProgress: (data: Partial<UserProgress>) => void;
+  setLastShortsQuestionId: (id: number | null) => void;
 }
 
 const getTodayString = () => {
@@ -60,6 +62,7 @@ export const useStore = create<StoreState>()(
       studyStreak: 0,
       lastStudyDate: null,
       dailyCompletionHistory: [],
+      lastShortsQuestionId: null,
 
       // Settings Reducers
       setTheme: (theme) => set({ theme }),
@@ -154,6 +157,7 @@ export const useStore = create<StoreState>()(
         studyStreak: 0,
         lastStudyDate: null,
         dailyCompletionHistory: [],
+        lastShortsQuestionId: null,
       }),
 
       importProgress: (data) => set((state) => ({
@@ -163,7 +167,10 @@ export const useStore = create<StoreState>()(
         studyStreak: data.studyStreak !== undefined ? data.studyStreak : state.studyStreak,
         lastStudyDate: data.lastStudyDate !== undefined ? data.lastStudyDate : state.lastStudyDate,
         dailyCompletionHistory: data.dailyCompletionHistory || state.dailyCompletionHistory,
+        lastShortsQuestionId: data.lastShortsQuestionId !== undefined ? data.lastShortsQuestionId : state.lastShortsQuestionId,
       })),
+
+      setLastShortsQuestionId: (lastShortsQuestionId) => set({ lastShortsQuestionId }),
     }),
     {
       name: 'frontend-prep-store',
