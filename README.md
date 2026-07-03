@@ -1,17 +1,28 @@
-# React + TypeScript + Vite
+# Frontend Interview Preparation Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-ready, offline-capable, and mobile-friendly Frontend Interview Preparation Web Application built using React 19, Vite, TypeScript, Zustand, and Framer Motion.
 
-Currently, two official plugins are available:
+**Live Demo:** [js-prep.netlify.app](https://js-prep.netlify.app/#/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Previews
 
-## React Compiler
+### Dashboard & Analytics
+![Dashboard](./src/assets/dashboard.jpg)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Category Browser
+![Category List](./src/assets/category.jpg)
 
-Note: This will impact Vite dev & build performances.
+### Question & Answer View
+![Question Details](./src/assets/question.jpg)
+
+## Tech Stack
+* **Framework**: React 19 + Vite
+* **State Management**: Zustand
+* **Styling**: Tailwind CSS
+* **Animations**: Framer Motion
+* **Routing**: React Router
+* **Search**: Fuse.js (Debounced client-side search)
+* **Data**: Local JSON files (HTML, CSS, JS, Performance, etc.)
 
 ## Expanding the ESLint configuration
 
@@ -75,3 +86,33 @@ export default defineConfig([
 ])
 
 ```
+## Netlify Deployment
+
+This project is configured for deployment on Netlify using the `netlify.toml` configuration file.
+
+### Deployment Options
+
+#### Option 1: Deploy using Netlify CLI
+1. Install Netlify CLI globally:
+   ```bash
+   npm install -g netlify-cli
+   ```
+2. Build the project locally:
+   ```bash
+   npm run build
+   ```
+3. Deploy:
+   ```bash
+   netlify deploy --prod
+   ```
+
+#### Option 2: Continuous Deployment (Git-integrated)
+1. Push your repository to GitHub, GitLab, or Bitbucket.
+2. Log in to [Netlify](https://www.netlify.com/).
+3. Click **Add new site** > **Import an existing project**.
+4. Select your Git provider and authorize Netlify.
+5. Select the repository.
+6. Netlify will automatically detect the configuration settings from `netlify.toml`:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist`
+7. Click **Deploy site**.

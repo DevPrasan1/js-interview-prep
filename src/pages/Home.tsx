@@ -67,7 +67,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
 
   return (
     <div className="space-y-10">
-      
+
       {/* Search Header Hero Panel */}
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent/15 via-purple-500/5 to-transparent p-6 md:p-10 border border-accent-soft-border/20 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-4 max-w-xl text-center md:text-left">
@@ -79,9 +79,9 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
             Master the <span className="bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent">Frontend Interview</span>
           </h1>
           <p className="text-sm md:text-base text-text-secondary leading-relaxed">
-            Practice production-ready web development concepts, solve interactive JS coding challenges, and study curated behavioral questions completely offline.
+            Practice web development concepts, solve interactive JS coding challenges, and study curated behavioral questions completely offline.
           </p>
-          
+
           {/* Quick search input button */}
           <div className="pt-2">
             <button
@@ -101,7 +101,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
             <Target className="w-4 h-4 text-accent" />
             <span>Overall Progress</span>
           </h2>
-          
+
           <div className="flex items-end justify-between">
             <span className="text-4xl font-extrabold text-text-primary tracking-tight">{completionPercentage}%</span>
             <span className="text-xs text-text-muted font-medium pb-1.5">
@@ -125,7 +125,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
               </div>
               <div className="text-[10px] text-text-muted uppercase font-semibold">Streak</div>
             </div>
-            
+
             <div className="space-y-0.5">
               <div className="flex items-center justify-center gap-1 text-yellow-500 font-extrabold text-base">
                 <Bookmark className="w-4.5 h-4.5 fill-current" />
@@ -139,7 +139,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
 
       {/* Main Grid: Categories vs Side Info */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
+
         {/* Left 2 Columns: Categories list */}
         <section className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
@@ -167,7 +167,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
                         </span>
                         <ChevronRight className="w-4 h-4 text-text-muted group-hover:text-accent transition-all group-hover:translate-x-0.5" />
                       </div>
-                      
+
                       <h3 className="font-bold text-base text-text-primary group-hover:text-accent transition-colors">
                         {cat.name}
                       </h3>
@@ -197,14 +197,14 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
 
         {/* Right 1 Column: Side Widgets (Daily, Continue, Stats) */}
         <section className="space-y-8">
-          
+
           {/* Daily Question */}
           {dailyQuestion && (
             <div className="space-y-4">
               <h2 className="text-xl font-extrabold text-text-primary">Daily Question</h2>
               <Card className="p-5 border border-accent/20 bg-gradient-to-br from-accent/[0.03] to-purple-500/[0.03] space-y-4 relative overflow-hidden shadow-sm">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-accent/5 rounded-full blur-md" />
-                
+
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-accent text-white">
@@ -213,7 +213,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
                     <DifficultyBadge difficulty={dailyQuestion.difficulty} />
                     <FrequencyBadge frequency={dailyQuestion.frequency} />
                   </div>
-                  
+
                   <h3 className="font-bold text-sm sm:text-base text-text-primary line-clamp-2 hover:text-accent transition-colors">
                     <Link to={`/question/${dailyQuestion.id}`}>{dailyQuestion.title}</Link>
                   </h3>
@@ -254,10 +254,9 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
                         <div className="flex items-center gap-2 text-[10px] text-text-muted">
                           <span>{q.category}</span>
                           <span>•</span>
-                          <span className={`${
-                            q.difficulty === 'Easy' ? 'text-emerald-500' :
-                            q.difficulty === 'Medium' ? 'text-amber-500' : 'text-rose-500'
-                          } font-semibold`}>
+                          <span className={`${q.difficulty === 'Easy' ? 'text-emerald-500' :
+                              q.difficulty === 'Medium' ? 'text-amber-500' : 'text-rose-500'
+                            } font-semibold`}>
                             {q.difficulty}
                           </span>
                         </div>
@@ -274,7 +273,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
           <div className="space-y-4">
             <h2 className="text-xl font-extrabold text-text-primary">Difficulty Stats</h2>
             <Card className="p-5 border border-border-color bg-bg-primary space-y-4">
-              
+
               {/* Easy Progress */}
               <div className="space-y-1">
                 <div className="flex justify-between text-xs font-semibold text-text-secondary">
@@ -318,7 +317,7 @@ export default function Home({ onSearchTrigger }: { onSearchTrigger: () => void 
               </div>
             </Card>
           </div>
-          
+
         </section>
 
       </div>
