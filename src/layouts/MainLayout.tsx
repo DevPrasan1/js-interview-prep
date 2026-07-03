@@ -148,39 +148,41 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
     <div className={`min-h-screen flex flex-col md:flex-row bg-bg-secondary ${fontSizeClass} transition-all duration-200`}>
 
       {/* Mobile Top Navbar */}
-      <header className="md:hidden flex items-center justify-between px-4 py-3 bg-bg-primary border-b border-border-color sticky top-0 z-40 shadow-sm">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsSidebarOpen(true)}
-            aria-label="Open sidebar"
-            className="p-1.5 rounded-lg text-text-secondary hover:bg-bg-tertiary focus:outline-none"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-          <Link to="/" className="flex items-center gap-2 font-bold text-lg text-accent">
-            <BookOpen className="w-6 h-6 text-accent fill-accent/10" />
-            <span>Frontend Prep</span>
-          </Link>
-        </div>
+      {location.pathname !== '/shorts' && (
+        <header className="md:hidden flex items-center justify-between px-4 py-3 bg-bg-primary border-b border-border-color sticky top-0 z-40 shadow-sm">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              aria-label="Open sidebar"
+              className="p-1.5 rounded-lg text-text-secondary hover:bg-bg-tertiary focus:outline-none"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+            <Link to="/" className="flex items-center gap-2 font-bold text-lg text-accent">
+              <BookOpen className="w-6 h-6 text-accent fill-accent/10" />
+              <span>Frontend Prep</span>
+            </Link>
+          </div>
 
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onSearchTrigger}
-            aria-label="Search questions"
-            className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary transition-all"
-          >
-            <Search className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onSearchTrigger}
+              aria-label="Search questions"
+              className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary transition-all"
+            >
+              <Search className="w-5 h-5" />
+            </button>
 
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary transition-all"
-          >
-            {getThemeIcon()}
-          </button>
-        </div>
-      </header>
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary transition-all"
+            >
+              {getThemeIcon()}
+            </button>
+          </div>
+        </header>
+      )}
 
       {/* Backdrop for mobile sidebar */}
       <AnimatePresence>
@@ -296,58 +298,60 @@ export default function MainLayout({ children, onSearchTrigger }: { children: Re
       {/* Main Panel Viewport */}
       <main className="flex-1 flex flex-col min-w-0">
         {/* Desktop Top Header / Breadcrumb navigation */}
-        <header className="hidden md:flex h-16 items-center justify-between px-8 bg-bg-primary border-b border-border-color sticky top-0 z-30 shadow-sm">
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-text-secondary">
-            {breadcrumbs.map((crumb, idx) => (
-              <React.Fragment key={idx}>
-                {idx > 0 && <ChevronRight className="w-4 h-4 text-text-muted flex-shrink-0" />}
-                {crumb.to ? (
-                  <Link
-                    to={crumb.to}
-                    className="hover:text-accent font-medium transition-all truncate max-w-[120px] lg:max-w-[200px]"
-                  >
-                    {crumb.label}
-                  </Link>
-                ) : (
-                  <span className="font-semibold text-text-primary truncate max-w-[150px] lg:max-w-[300px]">
-                    {crumb.label}
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
-          </nav>
+        {location.pathname !== '/shorts' && (
+          <header className="hidden md:flex h-16 items-center justify-between px-8 bg-bg-primary border-b border-border-color sticky top-0 z-30 shadow-sm">
+            {/* Breadcrumbs */}
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-text-secondary">
+              {breadcrumbs.map((crumb, idx) => (
+                <React.Fragment key={idx}>
+                  {idx > 0 && <ChevronRight className="w-4 h-4 text-text-muted flex-shrink-0" />}
+                  {crumb.to ? (
+                    <Link
+                      to={crumb.to}
+                      className="hover:text-accent font-medium transition-all truncate max-w-[120px] lg:max-w-[200px]"
+                    >
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-text-primary truncate max-w-[150px] lg:max-w-[300px]">
+                      {crumb.label}
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
+            </nav>
 
-          {/* Quick Header Actions */}
-          <div className="flex items-center gap-4">
-            {/* Search Trigger */}
-            <button
-              onClick={onSearchTrigger}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-border-color bg-bg-secondary hover:bg-bg-tertiary transition-all duration-200 text-sm text-text-muted w-48 focus:outline-none"
-            >
-              <Search className="w-4 h-4 text-text-muted flex-shrink-0" />
-              <span className="flex-1 text-left">Search (Press /)</span>
-            </button>
+            {/* Quick Header Actions */}
+            <div className="flex items-center gap-4">
+              {/* Search Trigger */}
+              <button
+                onClick={onSearchTrigger}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-border-color bg-bg-secondary hover:bg-bg-tertiary transition-all duration-200 text-sm text-text-muted w-48 focus:outline-none"
+              >
+                <Search className="w-4 h-4 text-text-muted flex-shrink-0" />
+                <span className="flex-1 text-left">Search (Press /)</span>
+              </button>
 
-            {/* Quick stats streak indicator */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 font-bold text-sm">
-              <Flame className="w-4 h-4 fill-current" />
-              <span>{streak} Day Streak</span>
+              {/* Quick stats streak indicator */}
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 font-bold text-sm">
+                <Flame className="w-4 h-4 fill-current" />
+                <span>{streak} Day Streak</span>
+              </div>
+
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary border border-border-color hover:text-text-primary transition-all duration-200 focus:outline-none"
+              >
+                {getThemeIcon()}
+              </button>
             </div>
-
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="p-2 rounded-xl text-text-secondary hover:bg-bg-tertiary border border-border-color hover:text-text-primary transition-all duration-200 focus:outline-none"
-            >
-              {getThemeIcon()}
-            </button>
-          </div>
-        </header>
+          </header>
+        )}
 
         {/* Content Container */}
-        <div className={`flex-1 overflow-y-auto ${compactMode ? 'p-1 md:p-6' : 'p-2 md:p-8'}`}>
-          <div className="max-w-6xl mx-auto w-full">
+        <div className={`flex-1 overflow-y-auto ${location.pathname === '/shorts' ? 'p-0' : (compactMode ? 'p-1 md:p-6' : 'p-2 md:p-8')}`}>
+          <div className={`${location.pathname === '/shorts' ? 'max-w-none w-full h-full' : 'max-w-6xl mx-auto w-full'}`}>
             {children}
           </div>
         </div>
