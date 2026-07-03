@@ -1,0 +1,33 @@
+{
+  "questions": [
+    {
+      "id": 801,
+      "category": "Security",
+      "title": "Explain XSS (Cross-Site Scripting) and how to prevent it in React.",
+      "difficulty": "Medium",
+      "frequency": "High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Okta",
+        "PayPal"
+      ],
+      "tags": [
+        "Security",
+        "XSS",
+        "React"
+      ],
+      "description": "<h2>Cross-Site Scripting (XSS)</h2><p>XSS is a security vulnerability where an attacker injects malicious client-side script code into a trusted website, which is then executed by the browser of an unsuspecting user.</p><h3>Types of XSS</h3><ul><li><strong>Reflected:</strong> Script comes from the current HTTP request.</li><li><strong>Stored:</strong> Script is saved in a database and rendered to multiple users.</li><li><strong>DOM-based:</strong> Script vulnerability exists purely in client-side code.</li></ul><h3>React's Built-in Protection</h3><p>React automatically escapes all variable values rendered in JSX to text content, preventing HTML injection. However, vulnerabilities can still creep in.</p>",
+      "bestPractices": "<ul><li>Avoid using <code>dangerouslySetInnerHTML</code> unless inputs are thoroughly sanitized using libraries like DOMPurify.</li><li>Never trust user inputs, specifically urls in <code>&lt;a href&gt;</code>, which can contain <code>javascript:...</code> links.</li><li>Use Content Security Policy (CSP) headers to restrict source domains for scripts.</li></ul>",
+      "commonMistakes": "<ul><li>Passing raw, unsanitized user inputs to <code>dangerouslySetInnerHTML</code>.</li><li>Rendering user-defined URLs directly into link tags without validating the protocol.</li></ul>",
+      "example": "<pre><code>// VULNERABLE to script injection via href\n&lt;a href={userInputUrl}&gt;Visit website&lt;/a&gt;\n\n// SAFE URL Validation\nconst safeUrl = userInputUrl.startsWith('http://') || userInputUrl.startsWith('https://')\n  ? userInputUrl\n  : '#';\n\n// SAFE HTML Rendering using DOMPurify\nimport DOMPurify from 'dompurify';\n&lt;div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userHTML) }} /&gt;</code></pre>",
+      "interviewTip": "Explain how React protects by escaping string data in JSX, but showcase your security depth by detailing the href query protocol vulnerability and how DOMPurify sanitizes markup.",
+      "followUpQuestions": [
+        "What is CSRF and how does it compare to XSS?",
+        "How does a Content Security Policy (CSP) mitigate injection attacks?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

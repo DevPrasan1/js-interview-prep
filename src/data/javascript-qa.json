@@ -1,0 +1,67 @@
+{
+  "questions": [
+    {
+      "id": 201,
+      "category": "JavaScript",
+      "title": "What is a Closure in JavaScript and how is it used?",
+      "difficulty": "Medium",
+      "frequency": "Very High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Microsoft",
+        "Uber"
+      ],
+      "tags": [
+        "JavaScript",
+        "Closures",
+        "Scope"
+      ],
+      "description": "<h2>JavaScript Closures</h2><p>A closure is the combination of a function bundled together with references to its surrounding state (the lexical environment). In JavaScript, closures are created every time a function is created, at function creation time.</p><p>Essentially, a closure gives an inner function access to the outer function's scope even after the outer function has finished executing.</p>",
+      "bestPractices": "<ul><li>Use closures to create private variables and encapsulate functionality.</li><li>Be mindful of memory management; closures can retain references to large objects in memory.</li></ul>",
+      "commonMistakes": "<ul><li>Creating closures inside loops without letting/const variables (though modern ES6 block scoping solves the classic var loop closure bug).</li><li>Retaining large objects in closure scope unnecessarily, leading to memory leaks.</li></ul>",
+      "example": "<pre><code>function createCounter() {\n  let count = 0;\n  return {\n    increment() {\n      count++;\n      return count;\n    },\n    decrement() {\n      count--;\n      return count;\n    }\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter.increment()); // 1\nconsole.log(counter.increment()); // 2\n// count is private and inaccessible from outside!</code></pre>",
+      "interviewTip": "Define closure clearly: 'A function that remembers its outer variables.' Mention practical applications: data privacy (encapsulation), stateful helpers, currying, and memoization.",
+      "followUpQuestions": [
+        "How do garbage collectors handle variables captured in closures?",
+        "What is currying and how does it relate to closures?"
+      ],
+      "relatedQuestions": [
+        202
+      ]
+    },
+    {
+      "id": 202,
+      "category": "JavaScript",
+      "title": "Explain the JavaScript Event Loop and Asynchronous Execution.",
+      "difficulty": "Hard",
+      "frequency": "Very High",
+      "estimatedReadTime": "5 minutes",
+      "companies": [
+        "Google",
+        "Amazon",
+        "Netflix",
+        "ByteDance"
+      ],
+      "tags": [
+        "JavaScript",
+        "Event Loop",
+        "Asynchronous",
+        "Execution Context"
+      ],
+      "description": "<h2>The JavaScript Event Loop</h2><p>JavaScript is a single-threaded language, meaning it has one call stack and executes one thing at a time. The event loop is a mechanism that allows JavaScript to perform non-blocking I/O operations by offloading tasks to the browser's APIs (or Node.js runtime) and processing callbacks in queues.</p><h3>Key Components</h3><ul><li><strong>Call Stack:</strong> Keeps track of currently executing functions.</li><li><strong>Web APIs:</strong> Browser threads handling DOM events, setTimeout, fetch, etc.</li><li><strong>Microtask Queue:</strong> Holds callbacks from Promises, MutationObserver. High priority.</li><li><strong>Macrotask Queue (Callback Queue):</strong> Holds callbacks from setTimeout, setInterval, I/O events. Low priority.</li></ul>",
+      "bestPractices": "<ul><li>Never block the main thread with heavy, synchronous computations.</li><li>Understand the order of execution: Microtasks run before the next Macrotask and before the browser renders.</li></ul>",
+      "commonMistakes": "<ul><li>Assuming setTimeout(fn, 0) executes immediately; it is queued in the Macrotask Queue and runs after the call stack and microtasks are cleared.</li></ul>",
+      "example": "<pre><code>console.log('Start');\n\nsetTimeout(() => console.log('Timeout (Macro)'), 0);\n\nPromise.resolve().then(() => console.log('Promise (Micro)'));\n\nconsole.log('End');\n\n// Output order:\n// 1. Start\n// 2. End\n// 3. Promise (Micro)\n// 4. Timeout (Macro)</code></pre>",
+      "interviewTip": "Write out a trace of a snippet containing sync code, setTimeout, and promises. Explain how the Event Loop checks the Call Stack, runs all Microtasks until the queue is empty, updates rendering, and then grabs one Macrotask.",
+      "followUpQuestions": [
+        "What is the difference between queueMicrotask and setTimeout?",
+        "How does requestAnimationFrame fit into the Event Loop cycle?"
+      ],
+      "relatedQuestions": [
+        201
+      ]
+    }
+  ]
+}

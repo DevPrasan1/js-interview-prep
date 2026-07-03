@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "id": 701,
+      "category": "Accessibility",
+      "title": "How do you build fully accessible Modal dialogs (WAI-ARIA specifications)?",
+      "difficulty": "Hard",
+      "frequency": "High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Google",
+        "Apple",
+        "Salesforce",
+        "Government Tech"
+      ],
+      "tags": [
+        "Accessibility",
+        "ARIA",
+        "Modal",
+        "Keyboard Navigation"
+      ],
+      "description": "<h2>Accessible Modals</h2><p>Building an accessible modal dialog is one of the most common frontend interview tasks testing deep accessibility knowledge. Simply setting absolute center alignment and backdrop opacity is insufficient.</p><h3>Core Accessibility Requirements</h3><ul><li><strong>Focus Trap:</strong> Tab focus must cycle only within the modal elements and cannot escape to the background document.</li><li><strong>Escape Key:</strong> Pressing <code>Escape</code> must close the modal.</li><li><strong>Focus Restoring:</strong> When the modal closes, focus must be returned to the element that triggered it.</li><li><strong>ARIA Roles:</strong> Role <code>dialog</code> or <code>alertdialog</code>, <code>aria-modal=\"true\"</code>, and linking description/title (<code>aria-labelledby</code>, <code>aria-describedby</code>).</li><li><strong>Aria-hidden:</strong> Hide background elements from screen readers using <code>aria-hidden=\"true\"</code> when modal is active.</li></ul>",
+      "bestPractices": "<ul><li>Use the HTML5 native <code>&lt;dialog&gt;</code> element where possible, as it provides focus trap and escape support out-of-the-box in modern browsers.</li><li>If custom-implementing, use packages like Radix Dialog to avoid focus trap edge cases.</li></ul>",
+      "commonMistakes": "<ul><li>Leaving the background scrollable.</li><li>Allowing keyboard tab selection to wander onto background buttons, enabling actions outside the modal context.</li></ul>",
+      "example": "<pre><code>// Simple hook for focus restoration and escape key\nuseEffect(() => {\n  const originalFocus = document.activeElement;\n  \n  const handleKeyDown = (e) => {\n    if (e.key === 'Escape') onClose();\n  };\n  \n  window.addEventListener('keydown', handleKeyDown);\n  return () => {\n    window.removeEventListener('keydown', handleKeyDown);\n    if (originalFocus) (originalFocus as HTMLElement).focus();\n  };\n}, [onClose]);</code></pre>",
+      "interviewTip": "Highlight focus trapping, escape-key triggers, and focus restoration as the primary challenges of modal accessibility. These three details show senior-level experience.",
+      "followUpQuestions": [
+        "What is the difference between role='dialog' and role='alertdialog'?",
+        "How does aria-modal='true' change screen reader behaviors?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

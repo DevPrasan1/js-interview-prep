@@ -1,0 +1,65 @@
+{
+  "questions": [
+    {
+      "id": 101,
+      "category": "CSS",
+      "title": "Explain the CSS Box Model and how box-sizing affects it.",
+      "difficulty": "Easy",
+      "frequency": "Very High",
+      "estimatedReadTime": "3 minutes",
+      "companies": [
+        "Google",
+        "Microsoft",
+        "Netflix"
+      ],
+      "tags": [
+        "CSS",
+        "Box Model",
+        "Layout"
+      ],
+      "description": "<h2>CSS Box Model</h2><p>The CSS box model is a container that wraps around every HTML element. It consists of: margin, border, padding, and the actual content.</p><ul><li><strong>Content:</strong> The text or images inside the box.</li><li><strong>Padding:</strong> Clear area around the content. Inside the border.</li><li><strong>Border:</strong> Border that goes around the padding and content.</li><li><strong>Margin:</strong> Clear area outside the border.</li></ul><h3>The box-sizing Property</h3><p>By default (<code>box-sizing: content-box</code>), width and height apply only to the content box. Under <code>box-sizing: border-box</code>, width and height include content, padding, and border.</p>",
+      "bestPractices": "<ul><li>Use <code>box-sizing: border-box</code> globally to make layout sizing predictable.</li><li>Avoid mixing absolute units (like pixels) with relative layouts unless necessary.</li></ul>",
+      "commonMistakes": "<ul><li>Forgetting that padding and borders add to the total width of an element, causing container overflow.</li><li>Using margins for spacing inside borders.</li></ul>",
+      "example": "<pre><code>/* Apply border-box globally */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n.card {\n  width: 300px;\n  padding: 20px;\n  border: 5px solid #000;\n  /* Total width is exactly 300px, not 350px! */\n}</code></pre>",
+      "interviewTip": "Explain why border-box is preferred (predictability) and write the global reset snippet from memory. Be sure to note that margins are not included in the width calculation of the box model.",
+      "followUpQuestions": [
+        "What is the difference between margin collapsing and regular margins?",
+        "How does outline differ from border?"
+      ],
+      "relatedQuestions": [
+        102,
+        103
+      ]
+    },
+    {
+      "id": 102,
+      "category": "CSS",
+      "title": "What is CSS Specificity and how is it calculated?",
+      "difficulty": "Medium",
+      "frequency": "High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Meta",
+        "Amazon",
+        "Apple"
+      ],
+      "tags": [
+        "CSS",
+        "Specificity",
+        "Cascade"
+      ],
+      "description": "<h2>CSS Specificity</h2><p>Specificity is the algorithm used by browsers to determine which CSS rule applies to an element when multiple rules conflict. It is represented as four numbers or columns: inline styles, IDs, classes/attributes/pseudo-classes, and elements/pseudo-elements.</p><h3>Calculation Hierarchy</h3><ul><li><strong>Inline Styles (A):</strong> e.g., <code>style=\"color: red\"</code> (Score: 1,0,0,0)</li><li><strong>IDs (B):</strong> e.g., <code>#header</code> (Score: 0,1,0,0)</li><li><strong>Classes, Attributes, and Pseudo-classes (C):</strong> e.g., <code>.menu</code>, <code>[type=\"text\"]</code>, <code>:hover</code> (Score: 0,0,1,0)</li><li><strong>Elements and Pseudo-elements (D):</strong> e.g., <code>div</code>, <code>::before</code> (Score: 0,0,0,1)</li></ul>",
+      "bestPractices": "<ul><li>Keep specificity low to make your CSS maintainable and reusable.</li><li>Avoid using <code>!important</code>. If you must use it, document why.</li><li>Use CSS variables for easy overrides instead of fighting specificity.</li></ul>",
+      "commonMistakes": "<ul><li>Relying on deep nesting (e.g. <code>body header nav ul li a</code>) which inflates specificity.</li><li>Using <code>!important</code> to fix specificity issues, which leads to stylesheets that are impossible to maintain.</li></ul>",
+      "example": "<pre><code>/* Spec: 0, 1, 0, 0 (High) */\n#title { color: blue; }\n\n/* Spec: 0, 0, 1, 1 (Medium) */\n.main-heading h1 { color: green; }\n\n/* Spec: 0, 0, 0, 1 (Low) */\nh1 { color: red; }\n\n/* #title wins! */</code></pre>",
+      "interviewTip": "If given a set of selectors, calculate their specificity scores using the 4-number system. Emphasize that specificity takes precedence over order in source file.",
+      "followUpQuestions": [
+        "Does the :where() pseudo-class add to specificity?",
+        "How does :is() affect specificity calculations?"
+      ],
+      "relatedQuestions": [
+        101
+      ]
+    }
+  ]
+}

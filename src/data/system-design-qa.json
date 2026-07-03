@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "id": 901,
+      "category": "System Design",
+      "title": "Design a high-performance Autocomplete / Typeahead widget.",
+      "difficulty": "Hard",
+      "frequency": "Very High",
+      "estimatedReadTime": "5 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Amazon",
+        "Uber",
+        "Lyft"
+      ],
+      "tags": [
+        "System Design",
+        "Widget Design",
+        "Performance",
+        "UX"
+      ],
+      "description": "<h2>Autocomplete Widget Design</h2><p>Designing an autocomplete component tests UI API design, optimization skills, network request handling, and accessibility.</p><h3>Key Architectural Pillars</h3><ul><li><strong>Network Optimization:</strong> Debounce keyboard inputs to prevent firing API queries on every keystroke. Cache previous queries in-memory.</li><li><strong>State Management:</strong> Cache key-value pairs (query to results). Support loading and empty states.</li><li><strong>Keyboard Navigation:</strong> Use arrow keys to select items, Escape to close list, Enter to confirm, and tab indexing.</li><li><strong>Aria Role Specifications:</strong> Combobox role, listbox role for dropdown, and <code>aria-autocomplete=\"list\"</code>.</li></ul>",
+      "bestPractices": "<ul><li>Limit results in the view to 5-10 items.</li><li>Use a Trie data structure on the client or server for prefix matching.</li><li>Support offline search using stored values when network is unavailable.</li></ul>",
+      "commonMistakes": "<ul><li>Firing API requests on every single keypress, overloading servers.</li><li>Race conditions: returning older results after newer searches due to fast typists. (Use abort controllers to cancel previous request).</li></ul>",
+      "example": "<pre><code>// Simple race-condition proof fetch effect\nuseEffect(() => {\n  const controller = new AbortController();\n  \n  const fetchData = async () => {\n    try {\n      const res = await fetch(`/api/search?q=${query}`, {\n        signal: controller.signal\n      });\n      const data = await res.json();\n      setResults(data);\n    } catch (err) {\n      if (err.name !== 'AbortError') handleErrors(err);\n    }\n  };\n\n  if (query) fetchData();\n  return () => controller.abort(); // Cancel if query changes\n}, [query]);</code></pre>",
+      "interviewTip": "Draw out the layout and API payload structure. Discuss debounce timers (e.g. 300ms) and how aborting stale requests with AbortController prevents out-of-order rendering updates (race conditions).",
+      "followUpQuestions": [
+        "How would you implement keyboard focus using active-descendant vs shifting focus?",
+        "How would you virtualize list results if the dropdown displays 100+ entries?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

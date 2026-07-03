@@ -1,0 +1,33 @@
+{
+  "questions": [
+    {
+      "id": 401,
+      "category": "React",
+      "title": "Explain React Reconciliation and the Virtual DOM.",
+      "difficulty": "Medium",
+      "frequency": "Very High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Meta",
+        "Twitter",
+        "Vercel"
+      ],
+      "tags": [
+        "React",
+        "Reconciliation",
+        "Virtual DOM",
+        "Fiber"
+      ],
+      "description": "<h2>Reconciliation and Virtual DOM</h2><p>Reconciliation is the process through which React updates the real DOM. Instead of re-rendering everything, React maintains a virtual representation of the UI (the Virtual DOM) in memory.</p><p>When state or props change, React generates a new Virtual DOM tree and diffs it with the previous tree using a heuristic O(n) algorithm.</p><h3>Heuristics</h3><ul><li>Different elements produce different trees.</li><li>The <code>key</code> prop helps identify which elements changed across renders, enabling item reordering rather than destruction/recreation.</li></ul>",
+      "bestPractices": "<ul><li>Always provide unique, stable keys for items in a list. Avoid using list indexes if items can reorder, insert, or delete.</li><li>Keep components small and state localized to minimize diffing subtree sizes.</li></ul>",
+      "commonMistakes": "<ul><li>Using <code>Math.random()</code> or indices as keys, which ruins rendering performance and breaks component state when items move.</li></ul>",
+      "example": "<pre><code>// GOOD: Stable ID as key\nitems.map(item => (\n  &lt;TodoItem key={item.id} todo={item} /&gt;\n))\n\n// BAD: Index as key (if list is dynamic)\nitems.map((item, index) => (\n  &lt;TodoItem key={index} todo={item} /&gt;\n))</code></pre>",
+      "interviewTip": "Explain React Fiber briefly as the modern reconciler that allows splitting reconciliation work into chunks and pausing/prioritizing updates to keep the main thread responsive.",
+      "followUpQuestions": [
+        "What is React Fiber and how does it enable concurrent rendering?",
+        "Why is index key bad for input elements in lists?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

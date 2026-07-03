@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "id": 301,
+      "category": "TypeScript",
+      "title": "What is the difference between Interfaces and Type Aliases in TypeScript?",
+      "difficulty": "Easy",
+      "frequency": "High",
+      "estimatedReadTime": "3 minutes",
+      "companies": [
+        "Microsoft",
+        "Airbnb",
+        "TypeScript Core Team"
+      ],
+      "tags": [
+        "TypeScript",
+        "Interface",
+        "Type Aliases"
+      ],
+      "description": "<h2>Interface vs. Type Alias</h2><p>Both interfaces and type aliases can be used to describe the shape of an object or a function signature, but they differ in capabilities and intent.</p><h3>Differences</h3><ul><li><strong>Declaration Merging:</strong> Interfaces support declaration merging (you can define the same interface multiple times and they will merge). Types do not.</li><li><strong>Unions and Primitives:</strong> Type aliases can represent primitives, unions, tuples, and intersections. Interfaces are strictly for object structures.</li><li><strong>Extending:</strong> Interfaces extend other interfaces/classes using the <code>extends</code> keyword. Types extend using intersections (<code>&amp;</code>).</li></ul>",
+      "bestPractices": "<ul><li>Use <code>interface</code> for object shapes where public extension/merging might be useful (like library APIs).</li><li>Use <code>type</code> for unions, tuples, mapping types, or complex conditional signatures.</li></ul>",
+      "commonMistakes": "<ul><li>Trying to redefine a type alias which throws a duplicate identifier error.</li></ul>",
+      "example": "<pre><code>// Interface Merging\ninterface User {\n  name: string;\n}\ninterface User {\n  age: number;\n}\nconst user: User = { name: 'Dev', age: 25 }; // Merged!\n\n// Type Union\ntype AuthState = 'logged-in' | 'logged-out';\n// Interfaces cannot do this directly!</code></pre>",
+      "interviewTip": "Summarize: 'Use interfaces by default for standard object API descriptions. Use types when you need unions, tuples, or complex operations.'",
+      "followUpQuestions": [
+        "How do interfaces and types differ in performance during compilation?",
+        "What are mapped types in TypeScript?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

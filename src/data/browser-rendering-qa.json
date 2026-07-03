@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "id": 501,
+      "category": "Browser & Rendering",
+      "title": "What is Critical Rendering Path and how does the browser render a page?",
+      "difficulty": "Medium",
+      "frequency": "High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Mozilla"
+      ],
+      "tags": [
+        "Browser & Rendering",
+        "CRP",
+        "Performance"
+      ],
+      "description": "<h2>Critical Rendering Path (CRP)</h2><p>The Critical Rendering Path is the sequence of steps the browser goes through to convert HTML, CSS, and JavaScript into actual pixels on the screen.</p><h3>The Steps</h3><ol><li><strong>DOM Construction:</strong> Parse HTML to build the Document Object Model tree.</li><li><strong>CSSOM Construction:</strong> Parse CSS to build the CSS Object Model tree.</li><li><strong>Render Tree:</strong> Combine DOM and CSSOM (filtering out hidden nodes like <code>display: none</code>).</li><li><strong>Layout (Reflow):</strong> Calculate exact sizes and positions of each node.</li><li><strong>Paint:</strong> Fill in pixels (colors, borders, images).</li><li><strong>Composite:</strong> Layer the painted elements together for display.</li></ol>",
+      "bestPractices": "<ul><li>Minimize render-blocking assets (critical CSS, async/defer JS).</li><li>Avoid layout thrashing by grouping DOM reads and writes.</li></ul>",
+      "commonMistakes": "<ul><li>Placing large synchronous scripts in the <code>&lt;head&gt;</code>, which halts DOM construction until the script is downloaded and executed.</li></ul>",
+      "example": "<pre><code>&lt;!-- BAD: Blocks DOM parsing --&gt;\n&lt;script src=\"heavy.js\"&gt;&lt;/script&gt;\n\n&lt;!-- GOOD: Non-blocking --&gt;\n&lt;script src=\"heavy.js\" defer&gt;&lt;/script&gt;\n&lt;script src=\"tracker.js\" async&gt;&lt;/script&gt;</code></pre>",
+      "interviewTip": "Differentiate between async and defer. async runs as soon as it downloads (blocking HTML parsing), while defer preserves script order and runs only after DOM parsing finishes.",
+      "followUpQuestions": [
+        "What is the difference between repaint and reflow?",
+        "How does CSS contain: layout help rendering performance?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

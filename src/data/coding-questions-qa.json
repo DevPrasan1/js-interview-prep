@@ -1,0 +1,67 @@
+{
+  "questions": [
+    {
+      "id": 1001,
+      "category": "Coding Questions",
+      "title": "Implement a custom Debounce function in JavaScript.",
+      "difficulty": "Easy",
+      "frequency": "Very High",
+      "estimatedReadTime": "3 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Amazon",
+        "Apple",
+        "Uber"
+      ],
+      "tags": [
+        "Coding Questions",
+        "JavaScript",
+        "Implementation"
+      ],
+      "description": "<h2>Custom Debounce Function</h2><p>Debouncing limits the rate at which a function gets triggered. It ensures that a function is called only after a certain amount of time has elapsed since it was last invoked.</p><p>Common use-cases: Window resizing, typing in search bars, scroll-based calculations.</p>",
+      "bestPractices": "<ul><li>Ensure the debounced function retains the lexical scope (<code>this</code>) and arguments of the original invocation.</li><li>Implement a <code>cancel()</code> method to clear pending timers.</li></ul>",
+      "commonMistakes": "<ul><li>Losing context (<code>this</code>) when calling the debounced function inside event listeners.</li></ul>",
+      "example": "<pre><code>function debounce(fn, delay) {\n  let timeoutId = null;\n  \n  const debounced = function(...args) {\n    const context = this;\n    \n    if (timeoutId) {\n      clearTimeout(timeoutId);\n    }\n    \n    timeoutId = setTimeout(() => {\n      fn.apply(context, args);\n    }, delay);\n  };\n  \n  debounced.cancel = function() {\n    if (timeoutId) {\n      clearTimeout(timeoutId);\n      timeoutId = null;\n    }\n  };\n  \n  return debounced;\n}</code></pre>",
+      "interviewTip": "Make sure you include `this` and arguments propagation using closure. This shows your depth of closures, lexical scopes, and function application.",
+      "followUpQuestions": [
+        "What is the difference between debounce and throttle?",
+        "How would you add an 'immediate' option to run the function on the leading edge?"
+      ],
+      "relatedQuestions": [
+        1002
+      ]
+    },
+    {
+      "id": 1002,
+      "category": "Coding Questions",
+      "title": "Implement a custom Throttle function in JavaScript.",
+      "difficulty": "Medium",
+      "frequency": "Very High",
+      "estimatedReadTime": "4 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Netflix",
+        "Lyft"
+      ],
+      "tags": [
+        "Coding Questions",
+        "JavaScript",
+        "Implementation"
+      ],
+      "description": "<h2>Custom Throttle Function</h2><p>Throttling guarantees that a function executes at most once in every specified duration. Useful for scroll events, drag-and-drop actions, or mouse movements.</p>",
+      "bestPractices": "<ul><li>Make sure arguments and contexts are correctly preserved.</li><li>Ensure the trailing edge execution fires if a call happens during the cooldown window.</li></ul>",
+      "commonMistakes": "<ul><li>Forgetting to execute the final call that happened during the wait period (trailing edge), which can leave layout positions outdated.</li></ul>",
+      "example": "<pre><code>function throttle(fn, limit) {\n  let lastFunc;\n  let lastRan;\n  return function(...args) {\n    const context = this;\n    if (!lastRan) {\n      fn.apply(context, args);\n      lastRan = Date.now();\n    } else {\n      clearTimeout(lastFunc);\n      lastFunc = setTimeout(function() {\n        if ((Date.now() - lastRan) >= limit) {\n          fn.apply(context, args);\n          lastRan = Date.now();\n        }\n      }, limit - (Date.now() - lastRan));\n    }\n  }\n}</code></pre>",
+      "interviewTip": "Describe the differences: debounce delays execution until quiet, whereas throttle periodically runs execution at a fixed interval during continuous events.",
+      "followUpQuestions": [
+        "How would you cancel a throttled execution?",
+        "How do you implement throttle using requestAnimationFrame?"
+      ],
+      "relatedQuestions": [
+        1001
+      ]
+    }
+  ]
+}

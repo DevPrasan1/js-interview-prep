@@ -1,0 +1,110 @@
+[
+  {
+    "id": "html",
+    "name": "HTML",
+    "description": "HyperText Markup Language, document structure, accessibility, and modern SEO semantic standards.",
+    "icon": "HtmlIcon",
+    "colorClass": "from-orange-500/10 to-red-500/10 border-orange-500/20 text-orange-600 dark:text-orange-400",
+    "hoverColorClass": "hover:border-orange-500/40 hover:shadow-orange-500/5",
+    "textGradientClass": "from-orange-500 to-red-500"
+  },
+  {
+    "id": "css",
+    "name": "CSS",
+    "description": "Cascading Style Sheets, modern layouts (Flexbox/Grid), specificity, variables, animations, and typography.",
+    "icon": "CssIcon",
+    "colorClass": "from-blue-500/10 to-cyan-500/10 border-blue-500/20 text-blue-600 dark:text-blue-400",
+    "hoverColorClass": "hover:border-blue-500/40 hover:shadow-blue-500/5",
+    "textGradientClass": "from-blue-500 to-cyan-500"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "description": "Core JS engine, event loop, closures, scopes, asynchronous operations, prototypes, and array manipulation.",
+    "icon": "JsIcon",
+    "colorClass": "from-yellow-500/10 to-amber-500/10 border-yellow-500/20 text-yellow-600 dark:text-yellow-400",
+    "hoverColorClass": "hover:border-yellow-500/40 hover:shadow-yellow-500/5",
+    "textGradientClass": "from-yellow-500 to-amber-500"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "description": "Static typing, interfaces, type aliases, generics, utility types, compile options, and type safety patterns.",
+    "icon": "TsIcon",
+    "colorClass": "from-blue-600/10 to-indigo-600/10 border-blue-600/20 text-blue-700 dark:text-blue-400",
+    "hoverColorClass": "hover:border-blue-600/40 hover:shadow-blue-600/5",
+    "textGradientClass": "from-blue-600 to-indigo-600"
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "description": "Reconciliation, components, hooks, custom hooks, fiber, state management, context, and performance tuning.",
+    "icon": "ReactIcon",
+    "colorClass": "from-cyan-500/10 to-teal-500/10 border-cyan-500/20 text-cyan-600 dark:text-cyan-400",
+    "hoverColorClass": "hover:border-cyan-500/40 hover:shadow-cyan-500/5",
+    "textGradientClass": "from-cyan-500 to-teal-500"
+  },
+  {
+    "id": "browser-rendering",
+    "name": "Browser & Rendering",
+    "description": "Critical rendering path, DOM/CSSOM, reflows, repaints, defer/async, web workers, and rendering APIs.",
+    "icon": "BrowserIcon",
+    "colorClass": "from-indigo-500/10 to-purple-500/10 border-indigo-500/20 text-indigo-600 dark:text-indigo-400",
+    "hoverColorClass": "hover:border-indigo-500/40 hover:shadow-indigo-500/5",
+    "textGradientClass": "from-indigo-500 to-purple-500"
+  },
+  {
+    "id": "performance",
+    "name": "Performance",
+    "description": "Core Web Vitals (LCP, INP, CLS), lazy loading, caching, compression, virtualization, and code splitting.",
+    "icon": "PerformanceIcon",
+    "colorClass": "from-emerald-500/10 to-green-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400",
+    "hoverColorClass": "hover:border-emerald-500/40 hover:shadow-emerald-500/5",
+    "textGradientClass": "from-emerald-500 to-green-500"
+  },
+  {
+    "id": "accessibility",
+    "name": "Accessibility",
+    "description": "Semantic tags, aria attributes, focus management, keyboard control, and WCAG AA contrast compliance.",
+    "icon": "A11yIcon",
+    "colorClass": "from-purple-500/10 to-pink-500/10 border-purple-500/20 text-purple-600 dark:text-purple-400",
+    "hoverColorClass": "hover:border-purple-500/40 hover:shadow-purple-500/5",
+    "textGradientClass": "from-purple-500 to-pink-500"
+  },
+  {
+    "id": "security",
+    "name": "Security",
+    "description": "Cross-Site Scripting (XSS), CSRF, CORS, Content Security Policy (CSP), cookies, and secure authorization.",
+    "icon": "SecurityIcon",
+    "colorClass": "from-red-500/10 to-rose-500/10 border-red-500/20 text-red-600 dark:text-red-400",
+    "hoverColorClass": "hover:border-red-500/40 hover:shadow-red-500/5",
+    "textGradientClass": "from-red-500 to-rose-500"
+  },
+  {
+    "id": "system-design",
+    "name": "System Design",
+    "description": "Building widgets (combobox, calendar, table), data architectures, state sync, local-first apps, and scale.",
+    "icon": "SystemDesignIcon",
+    "colorClass": "from-teal-500/10 to-emerald-500/10 border-teal-500/20 text-teal-600 dark:text-teal-400",
+    "hoverColorClass": "hover:border-teal-500/40 hover:shadow-teal-500/5",
+    "textGradientClass": "from-teal-500 to-emerald-500"
+  },
+  {
+    "id": "coding-questions",
+    "name": "Coding Questions",
+    "description": "Solving real JS code challenges: custom promises, deep cloning, throttling, event emitters, and search.",
+    "icon": "CodingIcon",
+    "colorClass": "from-violet-500/10 to-fuchsia-500/10 border-violet-500/20 text-violet-600 dark:text-violet-400",
+    "hoverColorClass": "hover:border-violet-500/40 hover:shadow-violet-500/5",
+    "textGradientClass": "from-violet-500 to-fuchsia-500"
+  },
+  {
+    "id": "behavioral-questions",
+    "name": "Behavioral Questions",
+    "description": "Standard behavioral patterns: STAR framework, conflict resolution, project leadership, and engineering trade-offs.",
+    "icon": "BehavioralIcon",
+    "colorClass": "from-slate-500/10 to-gray-500/10 border-slate-500/20 text-slate-600 dark:text-slate-400",
+    "hoverColorClass": "hover:border-slate-500/40 hover:shadow-slate-500/5",
+    "textGradientClass": "from-slate-500 to-gray-500"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "id": 601,
+      "category": "Performance",
+      "title": "What are Core Web Vitals and how do you optimize them?",
+      "difficulty": "Hard",
+      "frequency": "Very High",
+      "estimatedReadTime": "5 minutes",
+      "companies": [
+        "Google",
+        "Vercel",
+        "Amazon",
+        "Shopify"
+      ],
+      "tags": [
+        "Performance",
+        "Core Web Vitals",
+        "LCP",
+        "INP",
+        "CLS"
+      ],
+      "description": "<h2>Core Web Vitals</h2><p>Core Web Vitals are user-centered metrics created by Google to measure the page load speed, interactivity, and visual stability of a webpage.</p><h3>The Metrics</h3><ul><li><strong>Largest Contentful Paint (LCP):</strong> Measures loading performance. Targets visual rendering of the main page content within 2.5 seconds.</li><li><strong>Interaction to Next Paint (INP):</strong> Measures responsiveness/interactivity. Replaced FID in March 2024. Target is &lt;200ms.</li><li><strong>Cumulative Layout Shift (CLS):</strong> Measures visual stability. Ensures unexpected layout movements do not happen. Target is &lt;0.1.</li></ul>",
+      "bestPractices": "<ul><li>Optimize LCP by prioritizing the loading of main hero images (using <code>fetchpriority=\"high\"</code>).</li><li>Avoid layout shifts (CLS) by always reserving space for images/ads using explicit dimensions.</li><li>Reduce INP by splitting long tasks using <code>requestIdleCallback</code> or yielding threads.</li></ul>",
+      "commonMistakes": "<ul><li>Loading heavy images/videos without dimensions, causing massive layout shifts.</li><li>Blocking the main thread with heavy JS execution during page interactions, raising INP.</li></ul>",
+      "example": "<pre><code>&lt;!-- LCP Hero Image Optimization --&gt;\n&lt;img \n  src=\"hero.webp\" \n  alt=\"Hero\" \n  width=\"800\" \n  height=\"400\" \n  fetchpriority=\"high\" \n  preload=\"auto\"\n/&gt;</code></pre>",
+      "interviewTip": "Explain INP clearly: it measures the latency of all user interactions (clicks, taps, keypresses) on a page and picks the longest response. Mention techniques like task splitting and transition management.",
+      "followUpQuestions": [
+        "How does React 19 transition API improve INP?",
+        "What is the difference between LCP and FCP?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}

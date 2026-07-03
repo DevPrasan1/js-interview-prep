@@ -4,7 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>js-interview-prep</title>
+    <title>Frontend Prep — Senior Developer Study Hub</title>
+    <script>
+      (function() {
+        try {
+          const storeStr = localStorage.getItem('frontend-prep-store');
+          let theme = 'system';
+          if (storeStr) {
+            const parsed = JSON.parse(storeStr);
+            if (parsed && parsed.state && parsed.state.theme) {
+              theme = parsed.state.theme;
+            }
+          }
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

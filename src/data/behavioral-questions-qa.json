@@ -1,0 +1,33 @@
+{
+  "questions": [
+    {
+      "id": 1101,
+      "category": "Behavioral Questions",
+      "title": "Describe a complex technical disagreement you had with a teammate and how you resolved it.",
+      "difficulty": "Easy",
+      "frequency": "High",
+      "estimatedReadTime": "3 minutes",
+      "companies": [
+        "Google",
+        "Meta",
+        "Netflix",
+        "Stripe"
+      ],
+      "tags": [
+        "Behavioral Questions",
+        "Conflict Resolution",
+        "Communication"
+      ],
+      "description": "<h2>Technical Disagreements</h2><p>Companies ask this to test your collaboration skills, technical humility, emotional intelligence, and standard for engineering excellence.</p><h3>STAR Response Framework</h3><ul><li><strong>Situation:</strong> Context of the project and the technical fork.</li><li><strong>Task:</strong> Your task in solving the impasse.</li><li><strong>Action:</strong> Listening, compiling facts, building comparative prototypes, and establishing objectives.</li><li><strong>Result:</strong> Outcome, team consensus, lessons learned, and maintaining relation strength.</li></ul>",
+      "bestPractices": "<ul><li>Avoid bad-mouthing teammates. Describe disagreements as differences in optimization tradeoffs (e.g. bundle size vs development velocity).</li><li>Focus on data-driven decision making: benchmarks, prototypes, security implications.</li></ul>",
+      "commonMistakes": "<ul><li>Telling a story where you 'won' simply because you were smarter or louder. Collaborative compromise is the desired outcome.</li></ul>",
+      "example": "<blockquote>\"On my last project, our team was divided between writing custom responsive layouts or using a large utility grid system. I created a benchmark showing the build size impact of the utility sheet vs our custom styles. We analyzed the numbers together, agreed to use custom CSS properties to minimize weight, and documented it in our style guide. This reduced the CSS package size by 40% and improved our page performance metrics.\"</blockquote>",
+      "interviewTip": "Framework: 'Listen, Research, Benchmark, Align.' The key is to show you prioritize business outcomes and team relationships over individual pride.",
+      "followUpQuestions": [
+        "What would you do if a team lead made a decision you disagreed with and there was no time for discussion?",
+        "How do you maintain a healthy feedback loop on a remote team?"
+      ],
+      "relatedQuestions": []
+    }
+  ]
+}
