@@ -1,6 +1,6 @@
 # Frontend Interview Preparation Web Application
 
-A production-ready, offline-capable, and mobile-friendly Frontend Interview Preparation Web Application built using React 19, Vite, TypeScript, Zustand, and Framer Motion.
+A offline-capable, and mobile-friendly Frontend Interview Preparation Web Application built using React 19, Vite, TypeScript, Zustand, and Framer Motion.
 
 **Live Demo:** [js-prep.netlify.app](https://js-prep.netlify.app/#/)
 
